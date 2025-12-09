@@ -58,9 +58,9 @@ def weights_init_classifier(m):
             nn.init.constant_(m.bias, 0.0)
 
         
-# ---------------------------------------------------------------------
-# Clase auxiliar para pooling con solapamiento
-# ---------------------------------------------------------------------
+
+#  clase auxiliar para el solapamiento parcial
+
 class OverlappedPartPool2d(nn.Module):
     def __init__(self, num_parts, overlap_ratio, fmap_h, fmap_w):
         super().__init__()
@@ -87,7 +87,6 @@ class OverlappedPartPool2d(nn.Module):
             part_feats.append(pooled.squeeze(-1).squeeze(-1))
 
         return torch.stack(part_feats, dim=2)
-# ---------------------------------------------------------------------
 
 
 class TMGF(nn.Module):
@@ -295,4 +294,5 @@ class TMGF(nn.Module):
         return bn
 
 def tmgf(**kwargs):
+
     return TMGF(**kwargs)
