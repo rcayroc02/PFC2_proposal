@@ -1,0 +1,31 @@
+MODEL:
+  STEM_CONV: true
+  PRETRAIN_HW_RATIO: 2
+  PRETRAIN_PATH: "C:/Users/ROG/Documents/GitHub/WACV23-workshop-TMGF/pretrained/vit_small_ics_cfs_lup.pth"
+  NUM_PARTS: 5
+  GRANULARITIES: [2, 3]
+  BRANCH: "all"
+  GLOBAL_FEATURE_TYPE: "mean"
+  HAS_HEAD: true
+  HAS_EARLY_FEATURE: true
+  ENABLE_EARLY_NORM: false
+LOG:
+  LOG_DIR: "C:/Users/ROG/Documents/GitHub/WACV23-workshop-TMGF/logs"
+  CHECKPOINT:
+    SAVE_INTERVAL: 100
+INPUT:
+  HEIGHT: 384
+  WIDTH: 128
+  PIXEL_MEAN: [0.3525, 0.3106, 0.3140]
+  PIXEL_STD: [0.2660, 0.2522, 0.2505]
+TRAIN:
+  EPOCHS: 70
+  ITERS: 200
+  BATCHSIZE: 32
+  FP16: true
+MEMORY_BANK:
+  MOMENTUM: 0.2
+  PROXY_TEMP: 0.07
+  BG_KNN: 50
+  BALANCE_W: 0.15
+  PART_W: 0.1
